@@ -1577,5 +1577,10 @@ static void __exit thermal_exit(void)
 	mutex_destroy(&thermal_governor_lock);
 }
 
+int of_no_hwmon = 0;
+module_param(of_no_hwmon, int, 0644);
+MODULE_PARM_DESC(of_no_hwmon,
+		 "Avoid registering with hwmon interface (bool, default false)");
+
 fs_initcall(thermal_init);
 module_exit(thermal_exit);
